@@ -5,19 +5,21 @@ import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 export class App extends Component {
   render() {
+
+    const apiKey = process.env.REACT_APP_API_KEY;
+
     return (
       <div>
         <Router>
           <NavBar />
           <Routes>
-          <Route path="/" element={<News key="general"  pageSize={9} country="in" category="general"/>} />
-          <Route path="/business" element={<News key="business" pageSize={9} country="in" category="business"/>} />
-          <Route path="/entertainment" element={<News key="entertainment" pageSize={9} country="in" category="entertainment"/>} />
-          {/* <Route path="/" element={<News key="general" pageSize={9} country="in" category="general"/>} /> */}
-          <Route path="/health" element={<News key="health" pageSize={9} country="in" category="health"/>} />
-          <Route path="/science" element={<News key="science" pageSize={9} country="in" category="science"/>} />
-          <Route path="/sports" element={<News key="sports" pageSize={9} country="in" category="sports"/>} />
-          <Route path="/technology" element={<News key="technology" pageSize={9} country="in" category="technology"/>} />
+          <Route path="/" element={<News key="general" apiKey={apiKey} pageSize={9} country="us" category="general"/>} />
+          <Route path="/business" element={<News key="business" apiKey={apiKey} pageSize={9} country="us" category="business"/>} />
+          <Route path="/entertainment" element={<News key="entertainment" apiKey={apiKey} pageSize={9} country="us" category="entertainment"/>} />
+          <Route path="/health" element={<News key="health" apiKey={apiKey} pageSize={9} country="us" category="health"/>} />
+          <Route path="/science" element={<News key="science" apiKey={apiKey} pageSize={9} country="us" category="science"/>} />
+          <Route path="/sports" element={<News key="sports" apiKey={apiKey} pageSize={9} country="us" category="sports"/>} />
+          <Route path="/technology" element={<News key="technology" apiKey={apiKey} pageSize={9} country="us" category="technology"/>} />
           </Routes>
         </Router>
       </div>
